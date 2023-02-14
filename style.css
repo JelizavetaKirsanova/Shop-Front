@@ -1,0 +1,26 @@
+body{
+    display: flex;
+    font-size: 24px;
+    background-color: #F1F1F1;
+    align-items: center;
+    justify-content: center;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    background-color: #6A93D4;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+    padding: 20px 30px 20px 30px;
+    margin: 20px;
+}
+
+a:hover{
+    background-color: #447BD4;
+    box-shadow: 1px 5px 10px -5px black;
+    font-size: 28px;
+    transition: all 0.3s ease;
+}

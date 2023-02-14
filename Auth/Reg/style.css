@@ -22,6 +22,7 @@ div#root>div{
     align-items: center;
 }
 #reg{
+    color: white;
     width: 150px;
     height: 40px;
     background-color: #6A93D4;
@@ -40,7 +41,7 @@ div#root>div{
 #reg:hover{
     background-color: #447BD4;
     box-shadow: 1px 5px 10px -5px black;
-    font-size: 26px;
+    font-size: 28px;
     transition: all 0.3s ease;
 }
 input{
