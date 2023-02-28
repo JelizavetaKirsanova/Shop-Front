@@ -12,6 +12,15 @@ window.addEventListener("load", () => {
     linkBack.style.display = "block";
   } else {
     button.addEventListener("click", () => {
+      let q = document.getElementsByClassName("input");
+      for (let i = 0; i < q.length; i++) {
+        if (q[i].length > 0) {
+          console.log("ok")
+        } else{
+          q[i].style.background = "red";
+        }
+      }
+
       if (
         name.value &&
         email.value &&
@@ -36,7 +45,7 @@ window.addEventListener("load", () => {
             if (response.ok) {
               alert("done");
               response.json().then((data) => {
-                console.log(data)
+                console.log(data);
                 document.cookie = `email=${data.user.email}`;
               });
             } else {
