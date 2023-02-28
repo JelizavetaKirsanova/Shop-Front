@@ -12,15 +12,6 @@ window.addEventListener("load", () => {
     linkBack.style.display = "block";
   } else {
     button.addEventListener("click", () => {
-      let q = document.getElementsByClassName("input");
-      for (let i = 0; i < q.length; i++) {
-        if (q[i].length > 0) {
-          console.log("ok")
-        } else{
-          q[i].style.background = "red";
-        }
-      }
-
       if (
         name.value &&
         email.value &&
@@ -57,7 +48,51 @@ window.addEventListener("load", () => {
           }
         );
       } else {
-        alert("Check your data again");
+        let str = ''
+
+        if(!name.value){
+            name.style.borderColor = "red"
+            str += 'name, '
+        }else{
+            name.style.borderColor = "rgb(118, 118, 118)"
+        }
+
+        if(!email.value){
+            email.style.borderColor = "red"
+            str += 'email, '
+        }else{
+            email.style.borderColor  = "rgb(118, 118, 118)"
+        }
+
+
+        if(!passwords[0].value){
+            passwords[0].style.borderColor = "red"
+            str += 'first password field, '
+        }else{
+            passwords[0].style.borderColor = "rgb(118, 118, 118)"
+        }
+
+
+        if(!passwords[1].value){
+            passwords[1].style.borderColor = "red"
+            str += 'second password field, '
+        }else{
+            passwords[1].style.borderColor  = "rgb(118, 118, 118)"
+        }
+
+
+        if(passwords[0].value != passwords[1].value){
+            passwords[0].style.borderColor = "red"
+            passwords[1].style.borderColor = "red"
+            str += 'password are equal, '
+        }else if (passwords[0].value && passwords[1].value){
+            passwords[0].style.borderColor = "rgb(118, 118, 118)"
+            passwords[1].style.borderColor = "rgb(118, 118, 118)"   
+        }
+
+
+        alert(`Check your ${str}`);
+
       }
     });
   }
