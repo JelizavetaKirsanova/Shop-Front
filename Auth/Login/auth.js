@@ -3,7 +3,7 @@ window.addEventListener("load", () => {
   const email = document.getElementById("email");
   const password = document.getElementById("password");
 
-  if (document.cookie.includes("email")) {
+  if (AuthCheck()) {
     console.log(document.cookie);
     const form = document.getElementById("form");
     const linkBack = document.getElementById("linkBack");
@@ -46,7 +46,8 @@ window.addEventListener("load", () => {
             if (response.ok) {
               alert("done");
               response.json().then((data) => {
-                document.cookie = `email=${data.user.email}`;
+                console.log(data.token)
+                SaveToken(data.token)
               });
             } else {
               alert(response.statusText);

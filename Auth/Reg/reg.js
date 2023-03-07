@@ -1,10 +1,11 @@
+
 window.addEventListener("load", () => {
   const button = document.getElementById("reg");
   const name = document.getElementById("name");
   const email = document.getElementById("email");
   const passwords = document.getElementsByClassName("password");
 
-  if (document.cookie.includes("email")) {
+  if (AuthCheck()) {
     console.log(document.cookie);
     const form = document.getElementById("form");
     const linkBack = document.getElementById("linkBack");
@@ -36,8 +37,8 @@ window.addEventListener("load", () => {
             if (response.ok) {
               alert("done");
               response.json().then((data) => {
-                console.log(data);
-                document.cookie = `email=${data.user.email}`;
+                console.log(data.token)
+                SaveToken(data.token)
               });
             } else {
               alert("error");
