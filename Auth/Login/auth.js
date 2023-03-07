@@ -12,13 +12,22 @@ window.addEventListener("load", () => {
   } else {
     button.addEventListener("click", () => {
       let q = document.getElementsByClassName("input");
-      for (let i = 0; i < q.length; i++) {
-        if (q[i].length > 0) {
-          console.log("ok");
-        } else {
-          q[i].style.background = "red";
-        }
+      let str = ''
+
+      if(!email.value){
+          email.style.borderColor = "red"
+          str += 'email, '
+      }else{
+          email.style.borderColor  = "rgb(118, 118, 118)"
       }
+
+      if(!password.value){
+        password.style.borderColor = "red"
+        str += 'password '
+      }else{
+        password.style.borderColor  = "rgb(118, 118, 118)"
+      }
+
       if (email.value && password.value) {
         const user = {
           email: email.value,
@@ -48,7 +57,9 @@ window.addEventListener("load", () => {
           }
         );
       } else {
-        alert("Check your data again");
+       
+
+        alert(`Check your ${str}`);
       }
     });
   }
