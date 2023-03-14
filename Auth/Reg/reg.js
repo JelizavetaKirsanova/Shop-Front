@@ -1,11 +1,11 @@
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
   const button = document.getElementById("reg");
   const name = document.getElementById("name");
   const email = document.getElementById("email");
   const passwords = document.getElementsByClassName("password");
 
-  if (AuthCheck()) {
+  if (await AuthCheck()) {
     console.log(document.cookie);
     const form = document.getElementById("form");
     const linkBack = document.getElementById("linkBack");
@@ -39,6 +39,7 @@ window.addEventListener("load", () => {
               response.json().then((data) => {
                 console.log(data.token)
                 SaveToken(data.token)
+                history.back()
               });
             } else {
               alert("error");
