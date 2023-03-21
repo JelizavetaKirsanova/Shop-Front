@@ -4,6 +4,7 @@ body{
     background-color: #F1F1F1;
     align-items: center;
     justify-content: center;
+    
 }
 
 a{
@@ -23,4 +24,8 @@ a:hover{
     box-shadow: 1px 5px 10px -5px black;
     font-size: 28px;
     transition: all 0.3s ease;
+}
+#root{
+background-color: white;
+
 }

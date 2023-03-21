@@ -10,6 +10,7 @@ window.addEventListener("load", async () => {
         })
             .then((response) => response.json())
             .then((res) => {
+                console.log(res)
                 if (res.status == "ok") {
                     let divApi = document.getElementById("root");
                     let container = document.createElement("div");
@@ -23,6 +24,7 @@ window.addEventListener("load", async () => {
                     }
                     divApi.append(container);
                 } else {
+                    console.log(res)
                     alert("Please login or register");
                 }
             });

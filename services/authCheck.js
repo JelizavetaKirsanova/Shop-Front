@@ -8,6 +8,7 @@ async function AuthCheck() {
     })
         .then((response) => response.json())
         .then((res) => {
+            console.log(res.status)
             if (res.status == "ok") return true;
             return false;
         });
