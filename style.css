@@ -29,3 +29,14 @@ a:hover{
 background-color: white;
 
 }
+
+.grid{
+    width: 500px;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    grid-template-columns: 100px 100px 100px;
+    grid-gap: 30px;
+    align-items: center;
+    align-content: center;
+}

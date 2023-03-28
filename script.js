@@ -3,7 +3,7 @@ window.addEventListener("load", async () => {
         document.getElementById("buttons").style.display = "none"
         fetch("http://localhost:3000/goods", {
             method: "POST",
-            body: JSON.stringify({ token: document.cookie }),
+            body: JSON.stringify({ token: document.cookie, category : "default" }),
             headers: {
                 "Content-Type": "application/json",
             },
@@ -13,11 +13,15 @@ window.addEventListener("load", async () => {
                 console.log(res)
                 if (res.status == "ok") {
                     let divApi = document.getElementById("root");
+
+
+                    
                     let container = document.createElement("div");
+                    container.classList.add("grid")
                     console.log(res.body);
                     for (let good of res.goods) {
                         container.innerHTML += `<div>
-                            <h2>${good.name}</h2>
+                            <h2>${good.title}</h2>
                             <p>${good.description}</p>
                             <b>${good.price}</b>
                             </div>`;
