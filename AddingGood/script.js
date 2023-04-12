@@ -8,15 +8,13 @@ window.addEventListener("load", async () => {
           select += `</select>`
           document.getElementById("root").innerHTML += select
           let button = document.createElement("button")
-          button.addEventListener("click", () => {
+          button.addEventListener("click", async () => {
             const title = document.getElementById("title")
             const description = document.getElementById("description")
             const price = document.getElementById("price")
             const select = document.getElementById("select")
-            console.log(title.value)
-            console.log(description.value)
-            console.log(price.value)
-            console.log(select.value)
+            
+            await addGood(title.value, description.value, price.value, select.options[select.selectedIndex].text)
           })
           button.innerText = "Submit"
           document.getElementById("root").append(button)
@@ -25,7 +23,28 @@ window.addEventListener("load", async () => {
     }
   });
   
-  
+  async function addGood(title, description, price, category){
+    console.log(title, category)
+    return fetch("http://localhost:3000/addGood", {
+        method: "POST",
+        body: JSON.stringify({ token: document.cookie, title, description, price, category}),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((res) => {
+          console.log(res);
+          if (res.status == "ok") {
+            alert("Good added")
+          } else {
+            console.log(res);
+            alert("Please login or register");
+          }
+        });
+}
+
+
   async function loadCategories(){
       return fetch("http://localhost:3000/categories", {
           method: "POST",
