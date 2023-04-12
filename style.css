@@ -27,9 +27,28 @@ a:hover{
 }
 #root{
 background-color: white;
+display: grid;
+    justify-items: center;
+    justify-content: center;
+    grid-template-columns: 450px 450px ;
+    grid-gap: 30px;
+    
+    align-content: center;
 
 }
 
+.category{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px;
+}
+h2{
+    
+    color: #447BD4;
+
+
+}
 .grid{
     width: 500px;
     display: grid;
@@ -39,4 +58,5 @@ background-color: white;
     grid-gap: 30px;
     align-items: center;
     align-content: center;
+    text-transform: capitalize;
 }

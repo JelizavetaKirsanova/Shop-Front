@@ -21,10 +21,12 @@ function loadGoodsByCat(cat){
           console.log(res);
           if (res.status == "ok") {
             let divApi = document.getElementById("root");
-  
+            let category = document.createElement("div")
             let container = document.createElement("div");
+
+            category.classList.add("category")
   
-            divApi.innerHTML += `<h2>${cat.charAt(0).toUpperCase() + cat.slice(1)}</h2>`;
+            category.innerHTML += `<h2>${cat.charAt(0).toUpperCase() + cat.slice(1)}</h2>`;
   
             container.classList.add("grid");
             console.log(res.body);
@@ -32,10 +34,12 @@ function loadGoodsByCat(cat){
               container.innerHTML += `<div>
                               <h3>${good.title}</h3>
                               <p>${good.description}</p>
-                              <b>${good.price}</b>
+                              <p>${good.price}</p>
                               </div>`;
             }
-            divApi.append(container);
+            
+            category.append(container);
+            divApi.append(category);
           } else {
             console.log(res);
             alert("Please login or register");
