@@ -29,13 +29,13 @@ function loadGoodsByCat(cat){
             category.innerHTML += `<h2>${cat.charAt(0).toUpperCase() + cat.slice(1)}</h2>`;
   
             container.classList.add("grid");
-            console.log(res.body);
             for (let good of res.goods) {
-              container.innerHTML += `<div>
+                console.log(good)
+              container.innerHTML += `<a href="/Good/index.html?id=${good.ID}">
                               <h3>${good.title}</h3>
                               <p>${good.description}</p>
                               <p>${good.price}</p>
-                              </div>`;
+                              </a>`;
             }
             
             category.append(container);
@@ -45,7 +45,7 @@ function loadGoodsByCat(cat){
             alert("Please login or register");
           }
         });
-}
+}   
 
 async function loadCategories(){
     return fetch("http://localhost:3000/categories", {
