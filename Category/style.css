@@ -82,3 +82,49 @@ a:hover{
     transition: all 0.3s ease;
 }
 
+.grid>a>h3{
+    color:#6A93D4 
+}
+.grid>a{
+    color: black ;
+    text-decoration: none;
+    background-color: white;
+    width: 70px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#root{
+background-color: white;
+display: grid;
+    justify-items: center;
+    justify-content: center;
+    grid-template-columns: 450px 450px ;
+    grid-gap: 30px;
+    
+    align-content: center;
+
+}
+
+.category{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px;
+}
+h2{
+    
+    color: #447BD4;
+
+
+}
+.grid{
+    width: 500px;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    grid-template-columns: 100px 100px 100px;
+    grid-gap: 30px;
+    align-items: center;
+    align-content: center;
+    text-transform: capitalize;
+}

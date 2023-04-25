@@ -11,12 +11,10 @@ window.addEventListener("load", async () => {
         description.innerText = good.description
         let price = document.createElement("p")
         price.innerText = good.price
-        for (let good of res.goods) {
-          console.log(good)
-        category.innerHTML = `<a href="/Category/index.html?id=${good.ID} ">
-                        <h1>${good.category}</h1>
-                        </a>`;
-      }
+        
+        let category = document.createElement("a")
+        category.href = `/Category/index.html?category=${good.category}`
+        category.innerText = good.category
       
         let user = document.createElement("a")
         user.innerText = "User: " + good.userId 

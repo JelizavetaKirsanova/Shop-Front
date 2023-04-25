@@ -3,11 +3,12 @@ window.addEventListener("load", async () => {
       document.getElementById("buttons").style.display = "none";
       let root = document.getElementById("root");
       const params = new URLSearchParams(window.location.search);
-      const id = params.get("id");
-      let cat  = document.getElementsByTagName(h1);
-      
-    
-
+      const category = params.get("category");
+      let cat  = document.createElement('h1');
+      cat.innerText = category
+      root.append(cat)
+      loadGoodsByCat(category)
+    console.log(category)
   }
 });
 
@@ -29,7 +30,6 @@ function loadGoodsByCat(cat){
 
           category.classList.add("category")
 
-          category.innerHTML += `<h2>${cat.charAt(0).toUpperCase() + cat.slice(1)}</h2>`;
 
           container.classList.add("grid");
           for (let good of res.goods) {
