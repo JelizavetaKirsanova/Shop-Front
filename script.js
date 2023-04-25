@@ -31,7 +31,7 @@ function loadGoodsByCat(cat){
             container.classList.add("grid");
             for (let good of res.goods) {
                 console.log(good)
-              container.innerHTML += `<a href="/Good/index.html?id=${good.ID}">
+              container.innerHTML += `<a href="/Good/index.html?id=${good.ID} ">
                               <h3>${good.title}</h3>
                               <p>${good.description}</p>
                               <p>${good.price}</p>

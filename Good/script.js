@@ -11,8 +11,13 @@ window.addEventListener("load", async () => {
         description.innerText = good.description
         let price = document.createElement("p")
         price.innerText = good.price
-        let category = document.createElement("a")
-        category.innerText = "Category: " + good.category  
+        for (let good of res.goods) {
+          console.log(good)
+        category.innerHTML = `<a href="/Category/index.html?id=${good.ID} ">
+                        <h1>${good.category}</h1>
+                        </a>`;
+      }
+      
         let user = document.createElement("a")
         user.innerText = "User: " + good.userId 
         root.append(title, description, price, category, user)
