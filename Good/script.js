@@ -17,7 +17,8 @@ window.addEventListener("load", async () => {
         category.innerText = good.category
       
         let user = document.createElement("a")
-        user.innerText = "User: " + good.userId 
+        user.innerText = "User: " + good.userId
+        user.href = `/user/index.html?id=${good.userId}` 
         root.append(title, description, price, category, user)
 
     }

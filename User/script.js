@@ -1,52 +1,36 @@
 window.addEventListener("load", async () => {
-  if (await AuthCheck()) {
-    document.getElementById("buttons").style.display = "none";
-    let root = document.getElementById("root");
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
-    let title = document.createElement("h2")
-    title.innerText = "USERS"
-    root.append(title)
-    loadUsers();
+    if (await AuthCheck()) {
+        document.getElementById("buttons").style.display = "none";
+        let root = document.getElementById("root");
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id")
+        let user  = await loadUser(id)
+        let name = document.createElement("h2").innerText 
+        name = user.name
+        let email = document.createElement("p")
+        email.innerText = user.email
+        root.append(name, email)
 
-
-  }
+    }
 });
 
-function loadUsers() {
-  fetch("http://localhost:3000/user", {
-    method: "POST",
-    body: JSON.stringify({ token: document.cookie }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => response.json())
-    .then((res) => {
-      console.log(res);
-      if (res.status == "ok") {
-        let divApi = document.getElementById("root");
-        let users = document.createElement("div");
-        let container = document.createElement("div");
-
-        users.classList.add("users");
-
-        container.classList.add("grid");
-        console.log(res.user);
-        for (let user of res.user) {
-          console.log(user);
-          container.innerHTML += `<div class="user">
-                                  <h3>${user.name}</h3>
-                                  <p>${user.email}</p>
-                                  <p>${user.password}</p>
-                                  </div>`;
-        }
-
-        users.append(container);
-        divApi.append(users);
-      } else {
-        console.log(res);
-        alert("Please login or register");
-      }
-    });
+async function loadUser(id){
+    return fetch("http://localhost:3000/user", {
+        method: "POST",
+        body: JSON.stringify({ token: document.cookie, id : id}),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((res) => {    
+          console.log(res);
+          if (res.status == "ok") {
+            console.log(res.user)
+            return res.user
+          } else {
+            console.log(res);
+            alert("Please login or register");
+          }
+        });
 }

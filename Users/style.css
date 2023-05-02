@@ -1,0 +1,53 @@
+body{
+    display: flex;
+    font-size: 24px;
+    background-color: #F1F1F1;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+h3{
+    margin-bottom: 1px ;
+}
+p{
+    margin-bottom: 1px;
+}
+
+
+#root{
+    background-color: white;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+h3{
+    color: #447BD4;
+}
+.user{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    border: 1px solid;
+}
+h2{
+    
+    color: #447BD4;
+
+
+}
+.grid{
+    width: 1000px;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    grid-template-columns: 200px 200px 200px;
+    grid-gap: 30px;
+    align-items: center;
+    align-content: center;
+    text-transform: capitalize;
+}
