@@ -35,7 +35,7 @@ function sendImg(id) {
 
     data.append("category", "Good");
     data.append("id", id);
-    file = document.getElementById("file").files[0];
+    file = document.getElementById("file").files;
     console.log(file);
     if (file) {
         for (let x = 0; x < file.length; x++) {
