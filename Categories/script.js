@@ -24,7 +24,8 @@ function loadGoodsByCat(cat){
             let categories = document.createElement("div")
 
             categories.classList.add("categories")
-            categories.innerHTML += `<a href="/Category/index.html?id=${cat}">${cat.charAt(0).toUpperCase() + cat.slice(1)}</a>`;
+
+            categories.innerHTML += `<a href="/Category/index.html?category=${cat}">${cat.charAt(0).toUpperCase() + cat.slice(1)}</a>`;
             
            
             divApi.append(categories);
